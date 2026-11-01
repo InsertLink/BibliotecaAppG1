@@ -1,0 +1,47 @@
+﻿@model BibliotecaAppG1.Entities.Libro
+
+@{
+    ViewData["Title"] = "Detalles del Libro";
+}
+
+<h2>Detalles del Libro</h2>
+
+<div>
+    <h4>Libro: @Model.Titulo</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Titulo)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Titulo)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Autor)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Autor)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.ISBN)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.ISBN)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Editorial)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Editorial)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Idioma)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Idioma)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Genero)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Genero)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.FechaPublicacion)</dt>
+        <dd class="col-sm-9">@Model.FechaPublicacion.ToShortDateString()</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Paginas)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Paginas)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Stock)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Stock)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Estado)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Estado)</dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Editar</a> |
+    <a asp-action="Index" class="btn btn-secondary">Volver a la lista</a>
+</div>

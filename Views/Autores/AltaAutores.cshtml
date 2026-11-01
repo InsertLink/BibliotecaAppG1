@@ -1,0 +1,23 @@
+﻿@model BibliotecaAppG1.Entities.Autor
+
+@{
+    ViewData["Title"] = "Alta de Autor";
+}
+
+<h2>Alta de Nuevo Autor</h2>
+
+<form asp-action="Alta" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="Nombre"></label>
+        <input asp-for="Nombre" class="form-control" />
+        <span asp-validation-for="Nombre" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3">Guardar Autor</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
