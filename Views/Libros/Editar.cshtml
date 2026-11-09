@@ -1,0 +1,22 @@
+﻿@model BibliotecaAppG1.Entities.Libro
+
+@{
+    ViewData["Title"] = "Editar Libro";
+}
+
+<h2>Editar Libro</h2>
+
+<form asp-action="Editar" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <partial name="_FormularioLibroPartial" />
+
+    <div class="mt-3">
+        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

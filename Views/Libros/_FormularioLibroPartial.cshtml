@@ -1,0 +1,69 @@
+﻿@model BibliotecaAppG1.Entities.Libro
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+<div class="form-group">
+    <label asp-for="Titulo"></label>
+    <input asp-for="Titulo" class="form-control" />
+    <span asp-validation-for="Titulo" class="text-danger"></span>
+</div>
+
+<div class="form-group">
+    <label asp-for="AutorId">Autor</label>
+    <select asp-for="AutorId" asp-items="ViewBag.Autores" class="form-control">
+        <option value="">-- Seleccione un Autor --</option>
+    </select>
+    <span asp-validation-for="AutorId" class="text-danger"></span>
+</div>
+
+<div class="form-group">
+    <label asp-for="ISBN"></label>
+    <input asp-for="ISBN" class="form-control" />
+    <span asp-validation-for="ISBN" class="text-danger"></span>
+</div>
+
+<div class="form-group">
+    <label asp-for="Editorial"></label>
+    <input asp-for="Editorial" class="form-control" />
+    <span asp-validation-for="Editorial" class="text-danger"></span>
+</div>
+
+<div class="form-group">
+    <label asp-for="Idioma"></label>
+    <input asp-for="Idioma" class="form-control" />
+    <span asp-validation-for="Idioma" class="text-danger"></span>
+</div>
+
+<div class="form-group">
+    <label asp-for="Genero"></label>
+    <select asp-for="Genero" asp-items="ViewBag.Generos" class="form-control">
+        <option value="">-- Seleccione --</option>
+    </select>
+    <span asp-validation-for="Genero" class="text-danger"></span>
+</div>
+
+<div class="form-group">
+    <label asp-for="FechaPublicacion"></label>
+    <input asp-for="FechaPublicacion" type="date" class="form-control" />
+    <span asp-validation-for="FechaPublicacion" class="text-danger"></span>
+</div>
+
+<div class="form-group">
+    <label asp-for="Paginas"></label>
+    <input asp-for="Paginas" type="number" min="1" max="1000" class="form-control" />
+    <span asp-validation-for="Paginas" class="text-danger"></span>
+</div>
+
+<div class="form-group">
+    <label asp-for="Stock"></label>
+    <input asp-for="Stock" type="number" class="form-control" />
+    <span asp-validation-for="Stock" class="text-danger"></span>
+</div>
+
+<div class="form-group">
+    <label asp-for="Estado"></label>
+    <select asp-for="Estado" asp-items="ViewBag.Estados" class="form-control">
+        <option value="">-- Seleccione --</option>
+    </select>
+    <span asp-validation-for="Estado" class="text-danger"></span>
+</div>

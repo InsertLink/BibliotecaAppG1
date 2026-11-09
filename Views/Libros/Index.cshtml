@@ -1,0 +1,64 @@
+﻿@model IEnumerable<BibliotecaAppG1.Entities.Libro>
+
+@{
+    ViewData["Title"] = "Listado de Libros";
+}
+
+<h2>Listado de Libros</h2>
+
+<!-- Formulario de Búsqueda -->
+<form asp-action="Index" method="get" class="mb-4">
+    <div class="row">
+        <div class="col-md-4">
+            <input type="text" name="buscarTitulo" value="@ViewData["FiltroTitulo"]" class="form-control" placeholder="Buscar por Título..." />
+        </div>
+        <div class="col-md-4">
+            <input type="text" name="buscarGenero" value="@ViewData["FiltroGenero"]" class="form-control" placeholder="Buscar por Género..." />
+        </div>
+        <div class="col-md-4">
+            <button type="submit" class="btn btn-primary">Buscar</button>
+            <a asp-action="Index" class="btn btn-secondary">Limpiar</a>
+        </div>
+    </div>
+</form>
+
+<p>
+    <a asp-action="Alta" class="btn btn-success">Crear Nuevo Libro</a>
+</p>
+
+<table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Titulo)</th>
+            <th>@Html.DisplayNameFor(model => model.Autor.Nombre)</th>
+            <th>@Html.DisplayNameFor(model => model.Genero)</th>
+            <th>@Html.DisplayNameFor(model => model.Estado)</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (!Model.Any())
+        {
+            <tr>
+                <td colspan="5" class="text-center">No hay libros registrados aún.</td>
+            </tr>
+        }
+        else
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Titulo)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Autor.Nombre)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Genero)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Estado)</td>
+                    <td>
+                        <a asp-action="Editar" asp-route-id="@item.Id" class="btn btn-sm btn-primary">Editar</a>
+                        <a asp-action="Detalles" asp-route-id="@item.Id" class="btn btn-sm btn-info">Detalles</a>
+                        <a asp-action="Eliminar" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Eliminar</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

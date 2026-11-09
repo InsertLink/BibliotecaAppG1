@@ -1,0 +1,32 @@
+﻿@model BibliotecaAppG1.Entities.Libro
+
+@{
+    ViewData["Title"] = "Eliminar Libro";
+}
+
+<h2>Eliminar Libro</h2>
+<h3 class="text-danger">¿Está seguro de que desea eliminar este libro?</h3>
+
+<div>
+    <h4>Libro: @Model.Titulo</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Titulo)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Titulo)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Autor)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Autor)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.ISBN)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.ISBN)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Genero)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Genero)</dd>
+    </dl>
+
+    <form asp-action="Eliminar" method="post">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">Confirmar Eliminación</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
