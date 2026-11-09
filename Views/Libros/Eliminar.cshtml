@@ -24,7 +24,7 @@
         <dd class="col-sm-9">@Html.DisplayFor(model => model.Genero)</dd>
     </dl>
 
-    <form asp-action="Delete" method="post">
+    <form asp-action="Eliminar" method="post">
         <input type="hidden" asp-for="Id" />
         <button type="submit" class="btn btn-danger">Confirmar Eliminación</button>
         <a asp-action="Index" class="btn btn-secondary">Cancelar</a>

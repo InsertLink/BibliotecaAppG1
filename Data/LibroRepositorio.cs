@@ -7,10 +7,26 @@ namespace BibliotecaAppG1.Data
     {
         private readonly BibliotecaContext _context;
 
-        // Inyectamos el contexto de la base de datos
         public LibroRepositorio(BibliotecaContext context)
         {
             _context = context;
+        }
+ 
+        public List<Libro> Buscar(string titulo, string genero)
+        {
+            var query = _context.Libros.Include(l => l.Autor).AsQueryable();
+
+            if (!string.IsNullOrEmpty(titulo))
+            {
+                query = query.Where(l => l.Titulo.Contains(titulo));
+            }
+
+            if (!string.IsNullOrEmpty(genero))
+            {
+                query = query.Where(l => l.Genero.Contains(genero));
+            }
+
+            return query.ToList();
         }
 
         public void Agregar(Libro libro)
@@ -21,13 +37,11 @@ namespace BibliotecaAppG1.Data
 
         public List<Libro> ObtenerTodos()
         {
-            // Usamos Include(l => l.Autor) para traer los datos del autor relacionado usando LINQ
             return _context.Libros.Include(l => l.Autor).ToList();
         }
 
         public Libro ObtenerPorId(int id)
         {
-            // Usamos LINQ para buscar el libro y su autor
             return _context.Libros.Include(l => l.Autor).FirstOrDefault(l => l.Id == id);
         }
 

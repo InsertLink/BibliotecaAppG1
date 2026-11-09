@@ -212,3 +212,4 @@ D:\tools\projects\BibliotecaAppG1\bin\Debug\net10.0\runtimes\win-arm64\native\e_
 D:\tools\projects\BibliotecaAppG1\bin\Debug\net10.0\runtimes\win-x64\native\e_sqlite3.dll
 D:\tools\projects\BibliotecaAppG1\bin\Debug\net10.0\runtimes\win-x86\native\e_sqlite3.dll
 D:\tools\projects\BibliotecaAppG1\obj\Debug\net10.0\BibliotecaAppG1.csproj.AssemblyReference.cache
+D:\tools\projects\BibliotecaAppG1\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt

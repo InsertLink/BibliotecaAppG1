@@ -1,10 +1,18 @@
 using BibliotecaAppG1.Data;
 using BibliotecaAppG1.Service;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Agrega el contexto de base de datos usando SQLite
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/Login/Index";
+        options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
+    });
+
+// Adds context using SQLite
 builder.Services.AddDbContext<BibliotecaContext>(options => options.UseSqlite("Data Source=biblioteca.db"));
 
 builder.Services.AddScoped<LibroRepositorio>();
@@ -28,13 +36,13 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapStaticAssets();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Libros}/{action=Index}/{id?}")
-    .WithStaticAssets();
+    pattern: "{controller=Login}/{action=Index}/{id?}");
 
 app.Run();

@@ -6,11 +6,9 @@
 
 <h2>Editar Libro</h2>
 
-<form asp-action="Edit" method="post">
-    <!-- El ID debe estar oculto pero presente para que el POST sepa qué libro actualizar -->
+<form asp-action="Editar" method="post">
     <input type="hidden" asp-for="Id" />
 
-    <!-- Reutilizamos el Partial View que creamos en el paso de Alta -->
     <partial name="_FormularioLibroPartial" />
 
     <div class="mt-3">

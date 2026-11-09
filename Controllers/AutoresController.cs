@@ -1,15 +1,17 @@
 ﻿using BibliotecaAppG1.Data;
 using BibliotecaAppG1.Entities;
 using BibliotecaAppG1.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
+[Authorize]
 public class AutoresController : Controller
 {
     private readonly AutorServicio _servicio;
     
     public AutoresController(BibliotecaContext context)
     {
-        _servicio = new AutorServicio(context);
+        _servicio = new AutorServicio(new AutorRepositorio(context));
     }
     
     public IActionResult Alta()
@@ -23,9 +25,8 @@ public class AutoresController : Controller
     {
         if (ModelState.IsValid)
         {
-            _servicio.AltaAutor(autor);
-            // Redirige al alta de libros para que el usuario asocie el autor creado
-            return RedirectToAction("Alta", "Libros");
+            _servicio.Alta(autor);
+            return RedirectToAction("Index", "Libros");
         }
         return View(autor);
     }

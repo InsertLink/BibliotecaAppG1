@@ -12,7 +12,7 @@ namespace BibliotecaAppG1.Service
             _repo = repo;
         }
 
-        public void AltaAutor(Autor autor)
+        public void Alta(Autor autor)
         {
             _repo.Agregar(autor);
         }

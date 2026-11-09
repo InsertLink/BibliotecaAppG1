@@ -12,6 +12,11 @@ namespace BibliotecaAppG1.Service
             _repo = repo;
         }
 
+        public List<Libro> BuscarLibros(string titulo, string genero)
+        {
+            return _repo.Buscar(titulo, genero);
+        }
+
         public void AltaLibro(Libro libro)
         {
             _repo.Agregar(libro);

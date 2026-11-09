@@ -82,6 +82,33 @@ namespace BibliotecaAppG1.Migrations
                     b.ToTable("Libros");
                 });
 
+            modelBuilder.Entity("BibliotecaAppG1.Entities.Usuario", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("NombreUsuario")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("PasswordHash")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Usuarios");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            NombreUsuario = "admin",
+                            PasswordHash = "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5"
+                        });
+                });
+
             modelBuilder.Entity("BibliotecaAppG1.Entities.Libro", b =>
                 {
                     b.HasOne("BibliotecaAppG1.Entities.Autor", "Autor")
