@@ -17,8 +17,11 @@ builder.Services.AddDbContext<BibliotecaContext>(options => options.UseSqlite("D
 
 builder.Services.AddScoped<LibroRepositorio>();
 builder.Services.AddScoped<AutorRepositorio>();
+builder.Services.AddScoped<UsuarioRepositorio>();
+
 builder.Services.AddScoped<LibroServicio>();
 builder.Services.AddScoped<AutorServicio>();
+builder.Services.AddScoped<UsuarioServicio>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

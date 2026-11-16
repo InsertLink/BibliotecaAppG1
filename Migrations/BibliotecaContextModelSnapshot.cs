@@ -30,6 +30,23 @@ namespace BibliotecaAppG1.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Autores");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 3,
+                            Nombre = "Gabriel García Márquez"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Nombre = "George Orwell"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Nombre = "Jorge Luis Borges"
+                        });
                 });
 
             modelBuilder.Entity("BibliotecaAppG1.Entities.Libro", b =>
@@ -80,6 +97,50 @@ namespace BibliotecaAppG1.Migrations
                     b.HasIndex("AutorId");
 
                     b.ToTable("Libros");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AutorId = 3,
+                            Editorial = "Sudamericana",
+                            Estado = "Disponible",
+                            FechaPublicacion = new DateTime(1967, 5, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Genero = "Novela",
+                            ISBN = "978-0307474728",
+                            Idioma = "Español",
+                            Paginas = 417,
+                            Stock = 15,
+                            Titulo = "Cien años de soledad"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AutorId = 4,
+                            Editorial = "Secker & Warburg",
+                            Estado = "Disponible",
+                            FechaPublicacion = new DateTime(1949, 6, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Genero = "Novela",
+                            ISBN = "978-0451524935",
+                            Idioma = "Inglés",
+                            Paginas = 328,
+                            Stock = 5,
+                            Titulo = "1984"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            AutorId = 5,
+                            Editorial = "Sur",
+                            Estado = "Agotado",
+                            FechaPublicacion = new DateTime(1944, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Genero = "Cuento",
+                            ISBN = "978-8420633120",
+                            Idioma = "Español",
+                            Paginas = 200,
+                            Stock = 0,
+                            Titulo = "Ficciones"
+                        });
                 });
 
             modelBuilder.Entity("BibliotecaAppG1.Entities.Usuario", b =>

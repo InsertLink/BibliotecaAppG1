@@ -1,5 +1,4 @@
-﻿using BibliotecaAppG1.Data;
-using BibliotecaAppG1.Entities;
+﻿using BibliotecaAppG1.Entities;
 using BibliotecaAppG1.Service;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -12,10 +11,10 @@ public class LibrosController : Controller
     private readonly LibroServicio _libroServicio;
     private readonly AutorServicio _autorServicio;
 
-    public LibrosController(BibliotecaContext context)
+    public LibrosController(LibroServicio libroServicio, AutorServicio autorServicio)
     {
-        _libroServicio = new LibroServicio(new LibroRepositorio(context));
-        _autorServicio = new AutorServicio(new AutorRepositorio(context));
+        _libroServicio = libroServicio;
+        _autorServicio = autorServicio;
     }
 
     public IActionResult Index(string buscarTitulo, string buscarGenero)

@@ -1,5 +1,4 @@
-﻿using BibliotecaAppG1.Data;
-using BibliotecaAppG1.Entities;
+﻿using BibliotecaAppG1.Entities;
 using BibliotecaAppG1.Service;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -8,12 +7,12 @@ using Microsoft.AspNetCore.Mvc;
 public class AutoresController : Controller
 {
     private readonly AutorServicio _servicio;
-    
-    public AutoresController(BibliotecaContext context)
+
+    public AutoresController(AutorServicio servicio)
     {
-        _servicio = new AutorServicio(new AutorRepositorio(context));
+        _servicio = servicio;
     }
-    
+
     public IActionResult Alta()
     {
         return View();

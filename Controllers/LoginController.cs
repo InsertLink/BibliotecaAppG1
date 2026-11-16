@@ -3,7 +3,6 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using BibliotecaAppG1.Models;
-using BibliotecaAppG1.Data;
 using BibliotecaAppG1.Service;
 
 namespace BibliotecaAppG1.Controllers
@@ -12,9 +11,9 @@ namespace BibliotecaAppG1.Controllers
     {
         private readonly UsuarioServicio _servicio;
 
-        public LoginController(BibliotecaContext context)
+        public LoginController(UsuarioServicio servicio)
         {
-            _servicio = new UsuarioServicio(context);
+            _servicio = servicio;
         }
 
         public IActionResult Index()
